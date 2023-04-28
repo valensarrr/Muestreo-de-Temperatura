@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Fabrizio Carlassara",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 4.67,
+      "left": -5.33,
+      "attrs": { "builder": "pico-sdk" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -116.85,
+      "left": -56.48,
+      "attrs": { "digits": "4", "common": "anode" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 38.57,
+      "left": 122.52,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "sevseg1:A", "pico:GP0", "green", [ "v-23.71", "h-118.4", "v156.22" ] ],
+    [ "sevseg1:B", "pico:GP1", "green", [ "v-15.28", "h-150.63", "v153.97" ] ],
+    [ "sevseg1:C", "pico:GP2", "green", [ "v39.74", "h-53.32", "v42.14" ] ],
+    [ "pico:GP3", "sevseg1:D", "green", [ "h-22.89", "v-67.85", "h38.21" ] ],
+    [ "sevseg1:E", "pico:GP4", "green", [ "v25.69", "h-39.12", "v84.85" ] ],
+    [ "sevseg1:F", "pico:GP5", "green", [ "v-8.54", "h-91.48", "v194.43" ] ],
+    [ "sevseg1:G", "pico:GP6", "green", [ "v51.54", "h-83.71", "v79.23" ] ],
+    [ "sevseg1:DIG1", "pico:GP8", "blue", [ "v-32.23", "h-82.37", "v265.46" ] ],
+    [ "sevseg1:DIG2", "pico:GP9", "blue", [ "v-39.3", "h-118.88", "v266.75" ] ],
+    [ "sevseg1:DIG3", "pico:GP10", "blue", [ "v-47.01", "h-136.2", "v280.25" ] ],
+    [ "sevseg1:DP", "pico:GP7", "green", [ "v44.35", "h-81", "v99.63" ] ],
+    [ "ntc1:GND", "pico:GND.6", "black", [ "h-37.81", "v39.72" ] ],
+    [ "ntc1:VCC", "pico:3V3", "red", [ "h-36.51", "v-25.85" ] ],
+    [ "ntc1:OUT", "pico:GP26", "orange", [ "h-43.8", "v33.45" ] ]
+  ],
+  "dependencies": {}
+}
